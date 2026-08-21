@@ -4,11 +4,14 @@ A custom Lovelace Home Assistant dashboard card for displaying active weather
 alerts --- with a little personality when the weather is behaving
 itself.
 
-When an optional NWS Alerts entity reports active alerts, the card
+When an optional [NWS Alerts](https://github.com/finity69x2/nws_alerts) entity reports active alerts, the card
 displays an alert banner that opens a scrollable detail view. When there
 are no active alerts --- or when alerts are not configured --- the card
 becomes either the **Muggy Meter** or **Nipply Meter**, based on the
 current temperature.
+
+**Muggy Meter** is inspired by [Michigan Storm Chasers](https://michiganstormchasers.com)! **Nipply Meter** is
+inspired by none other than Clark Griswold from National Lampoon's Christmas Vacation.
 
 Because weather dashboards can be useful *and* fun.
 
@@ -37,11 +40,16 @@ Because weather dashboards can be useful *and* fun.
 -   Uses existing Home Assistant entities; the card itself does not
     contact a weather service
 
+## To-dos
+
+-   Support more international weather alert sources (currently weather alerts
+    are sourced through the NWS Alerts HACS integration.
+
 ## Requirements
 
 ### Required
 
-A Home Assistant **weather entity** containing:
+A Home Assistant **weather entity** containing (HA's default weather entity supports this!):
 
 -   `temperature`
 -   `dew_point`
@@ -116,47 +124,14 @@ Replace the example entity IDs with your own.
 
 ## Configuration Options
 
-  ---------------------------------------------------------------------------
-  Option                Required          Default           Description
-  --------------------- ----------------- ----------------- -----------------
-  `weather_entity`      Yes               ---               Weather entity
-                                                            containing
-                                                            `temperature` and
-                                                            `dew_point`
-
-  `alert_entity`        No                ---               Optional NWS
-                                                            Alerts sensor
-                                                            containing the
-                                                            active alert
-                                                            count and
-                                                            `Alerts`
-                                                            attribute
-
-  `temperature_unit`    No                `auto`            Display unit.
-                                                            Supports `auto`,
-                                                            `fahrenheit`, or
-                                                            `celsius`
-
-  `suppress_no_alert`   No                `false`           Suppresses the
-                                                            informational
-                                                            warning when no
-                                                            alert entity is
-                                                            configured
-
-  `debug_mode`          No                ---               Forces a meter
-                                                            for testing.
-                                                            Valid values are
-                                                            `muggy` or
-                                                            `nipply`;
-                                                            anything else is
-                                                            ignored
-
-  `debug_temperature`   No                ---               Overrides the
-                                                            meter input while
-                                                            a valid
-                                                            `debug_mode` is
-                                                            active
-  ---------------------------------------------------------------------------
+| Option | Required | Default | Description |
+| :---     | :---    | :---     | :---     |
+| `weather_entity` | Yes | --- | Weather entity containing both `temperature` and `dew_point` data points. If you have the Weather app set up in Home Assistant, it'll be named something like `weather.<your_home_name>`|
+| `alert_entity` | Recommended | --- | Optional NWS Alerts sensor containing the active alert count and `Alerts` attribute. |
+| `temperature_unit` | No | `auto` | Determines whether temperatures are displayed in Celsius or Fahrenheit. Supports `auto`, `fahrenheit`, or `celsius`. If not specified, defaults to `auto`. |
+| `suppress_no_alert` | No | `false` | Suppresses the informational warning when no alert entity (NWS Alerts) is configured. Set to `true` to hide the warning message. |
+| `debug_mode` | No | --- | Forces a meter (Muggy or Nipply) for testing. Valid values are `muggy` or `nipply`; anything else is ignored. |
+| `debug_temperature` | No | --- | Overrides the current temperature provided by `weather_entity`. Enables you to test the Muggy Meter or Nipply Meter with a temperature of your choosing. Requires `debug_mode` to be either `muggy` or `nipply`. |
 
 ## Temperature Units
 
@@ -185,10 +160,10 @@ produce the same status regardless of the user's display unit.
 
 ## Optional Weather Alerts
 
-To enable NWS weather alerts, configure an alert entity:
+To enable NWS weather alerts, configure an alert entity -- an example is shown below (from NWS Alerts):
 
 ``` yaml
-alert_entity: sensor.nws_alerts
+alert_entity: sensor.nws_alerts_gps_31_8487_90_4997_nws_alerts_alerts
 ```
 
 If `alert_entity` is omitted, the card still provides the Muggy Meter
@@ -204,12 +179,16 @@ suppress_no_alert: true
 ```
 
 This is particularly useful for users outside the United States who do
-not use an NWS alert source.
+not use an NWS alert source. International support is coming!
 
 ## Debugging the Meters
 
 The card includes optional debug settings so you do not have to modify
-the JavaScript just to test the various Muggy and Nipply states.
+the JavaScript just to test the various Muggy and Nipply states. The Muggy
+Meter is rendered when the current temperature is 55F or 12.8C or higher;
+at lower temperatures the Nipply Meter is displayed. If you want to test
+both meters, the debug temperature will enable you to specify any temperature
+value, and the meter will update accordingly.
 
 Force the Muggy Meter:
 
