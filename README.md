@@ -1,6 +1,6 @@
 # Fun Weather Alerts
 
-A custom Home Assistant dashboard card for displaying active weather
+A custom Lovelace Home Assistant dashboard card for displaying active weather
 alerts --- with a little personality when the weather is behaving
 itself.
 
