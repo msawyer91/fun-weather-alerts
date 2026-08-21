@@ -243,13 +243,13 @@ Debug mode can force either meter for testing.
 The Muggy Meter is based on **current dew point**, not relative
 humidity.
 
-  Dew Point                   Status
-  --------------------------- -------------------------
-  ≥ 75°F / \~24°C             🥵 Deodorant Won't Work
-  70--\<75°F / \~21--\<24°C   😥 Disrespectful
-  65--\<70°F / \~18--\<21°C   😰 Air You Can Wear
-  60--\<65°F / \~16--\<18°C   😪 Kind of Humid
-  \< 60°F / \<\~16°C          ✅ Comfortable
+| Fahrenheit | Celsius | Status |
+| :---     | :---    | :---     |
+| ≥ 75°F | ≥ 24°C | 🥵 Deodorant Won't Work |
+| ≥70 to <75°F | ≥21 to <24°C | 😥 Disrespectful |
+| ≥65 to <70°F | ≥18 to <21°C | 😰 Air You Can Wear |
+| ≥60 to <65°F | ≥16 to <18°C | 😪 Kind of Humid |
+| < 60°F | < 16°C | ✅ Comfortable |
 
 Tap the Muggy Meter to display the full scale in both Fahrenheit and
 Celsius.
@@ -258,15 +258,15 @@ Celsius.
 
 The Nipply Meter is based on **current air temperature**.
 
-  Temperature                Status
-  -------------------------- -----------------------------------------
-  50--55°F / \~10--13°C      ✅ Not Nipply
-  40--\<50°F / \~4--10°C     🙂 A Little Brisk
-  32--\<40°F / \~0--4°C      🥶 Nipply
-  20--\<32°F / \~-7--0°C     ⚠️ Nipples Are At Risk
-  10--\<20°F / \~-12---7°C   ‼️ Nipple Damage Likely
-  5--\<10°F / \~-15---12°C   ❌ Severe Nipple Damage Likely
-  \< 5°F / \<\~-15°C         ☠️ Catastrophic Nipple Failure Imminent
+| Fahrenheit | Celsius | Status |
+| :---     | :---    | :---     |
+| ≥50 to <55°F | ≥10 to <13°C | ✅ Not Nipply |
+| ≥40 to <50°F | ≥4 to <10°C | 🙂 A Little Brisk |
+| ≥32 to <40°F | ≥0 to <4°C | 🥶 Nipply |
+| ≥20 to <32°F | ≥-7 to <0°C | ⚠️ Nipples Are At Risk |
+| ≥10 to <20°F | ≥-12 to <-7°C | ‼️ Nipple Damage Likely |
+| ≥5 to <10°F | ≥-15 to <-12°C | ❌ Severe Nipple Damage Likely |
+| <5°F | <-15°C | ☠️ Catastrophic Nipple Failure Imminent |
 
 Tap the Nipply Meter to display the full scale in both Fahrenheit and
 Celsius.
@@ -335,12 +335,12 @@ instructions during hazardous weather.
 
 ## License
 
-Add the license used by this repository here.
+This repo utilizes the MIT license. Please consult the LICENSE file in the root directory.
 
 ## Credits
 
 Weather alert data, when configured with an NWS Alerts entity,
 ultimately comes from the National Weather Service / Weather.gov.
 
-Built for Home Assistant dashboards, hyperpowerful hyperboomers, air you
-can wear, and the responsible monitoring of nipple bicepularity.
+The Muggy Meter is inspired from an actual Muggy Meter published by Michigan Storm Chasers
+on their Facebook page.
