@@ -15,6 +15,8 @@ inspired by none other than Clark Griswold from National Lampoon's Christmas Vac
 
 Because weather dashboards can be useful *and* fun.
 
+![Severe Thunderstorm Warning](tstorm-warning.png)
+
 ## Features
 
 -   Displays a banner whenever one or more configured weather alerts are
@@ -320,6 +322,20 @@ temperature_unit: auto
 ```
 
 For normal operation, only `weather_entity` is required.
+
+## Screen Captures
+
+### Standard Banners
+![Weather Alerts](active-weather-alerts.png)
+![Muggy Meter](muggy-meter.png)
+![Nipply Meter](nipply-meter.png)
+
+### Detailed View
+![Muggy Meter](muggy-details.png)
+![Nipply Meter](nipply-details.png)
+
+### Configuration
+![Configuration Dialogue](config-dialogue.png)
 
 ## Notes
 
